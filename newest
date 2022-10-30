@@ -1,0 +1,144 @@
+def pilihan():
+    print("==== PT. Project RJCD ====")
+    print("1. Input data karyawan")
+    print("2. Lihat data per Karyawan")
+    print("3. Rules Perusahaan")
+    print("4. Lihat semua data")
+    print("0. Exit Program")
+    print("==========================")
+
+listKaryawan = []
+listTahun = []
+listIzin = []
+listAbsen = []
+listProject = []
+listKomisi = []
+listLembur = []
+# listKaryawan.append(namaKaryawan)
+# listKaryawan.append("Ucok")
+# listKaryawan[0] = "Udin"
+# listKaryawan[1] = "Ucok"
+# listTahun[0] = 2018
+# listTahun[1] = 2005
+# listIzin[0] = 1
+# listIzin[1] = 5
+# listAbsen[0] = 0
+# listAbsen[1] = 1
+# listProject[0] = 0
+# listProject[1] = 1
+# listKomisi[0] = 0
+# listKomisi[1] = 10000
+# listLembur[0] = 2
+# listLembur[1] = 1
+
+penaltiIzin = 0
+penaltiAbsen = 0
+# salary = (gaji * totaljam * bulan[index])
+gajiSenior = 8000000
+gajiJunior = 4000000
+
+pilihan()
+choice = int(input("Pilih : "))
+
+while choice != 0:
+    if choice == 1:
+        namaKaryawan = str(input("Masukkan nama karyawan : "))
+        tahunKerja = int(input("Tahun Kerja : "))
+        totalIzin = int(input("Total Izin : "))
+        totalAbsen = int(input("Total Absen : "))
+        lembur = int (input("Total Lembur (HOUR) :"))
+        komisi = 0
+        project = int(input("Jumlah projek yang diselesaikan : "))
+        while project != 0:
+            inputKomisi = int(input("Komisi per project : "))
+            komisi += inputKomisi
+            project -= 1
+        # namaKaryawan = "Udin"
+        # tahunKerja = 2010
+        # totalIzin = 0
+        # totalAbsen = 0
+        listKaryawan.append(namaKaryawan)
+        listTahun.append(tahunKerja)
+        listIzin.append(totalIzin)
+        listAbsen.append(totalAbsen)
+        listProject.append(project)
+        listKomisi.append(komisi)
+        listLembur.append(lembur)
+        pilihan()
+        choice = int(input("Pilih : "))
+
+    elif choice == 2:
+        for x in listKaryawan:
+            print(listKaryawan.index(x) + 1, end="")
+            print(".", x)
+        if len(listKaryawan) > 0:
+            lihatData = int(input(("Masukkan no.urut karyawan : ")))
+            print("Nama karyawan : ", listKaryawan[lihatData - 1])
+            print("Tahun kerja : ", listTahun[lihatData - 1])
+            if (2022 - listTahun[lihatData - 1] >= 5):
+                print("Kesenioritasan : Senior")
+            else :
+                print("Kesenioritasan : Junior")
+            print("Total izin\t: ",listIzin[lihatData - 1])
+            print("Total absen\t: ",listAbsen[lihatData - 1])
+            print("Total lembur\t: ",listLembur[lihatData - 1] * 5000) 
+            print("Total Komisi\t: ",listKomisi[lihatData - 1])
+            print("\n")
+            if (2022 - listTahun[lihatData - 1] >= 5):
+                print ("Gaji Kotor\t: ",gajiSenior)
+                print ("Absen\t: -",listAbsen[lihatData - 1] * 40000)
+                print ("Izin\t: -",listIzin[lihatData - 1] * 20000)
+                print ("Lembur\t: +", listLembur[lihatData - 1] * 15000)
+                print ("Komisi\t: +", listKomisi[lihatData - 1])
+                gajiSenior = gajiSenior - (listAbsen[lihatData - 1] * 40000 + listIzin[lihatData - 1]* 20000) + (listLembur[lihatData - 1] * 15000) + listKomisi[lihatData - 1]
+                print("Gaji Bersih : ",gajiSenior)
+            else:
+                print ("Gaji Kotor\t: ",gajiJunior)
+                print ("Absen\t: -",listAbsen[lihatData - 1] * 40000)
+                print ("Izin\t: -",listIzin[lihatData - 1] * 20000)
+                print ("Lembur\t: +", listLembur[lihatData - 1] * 15000)
+                print ("Komisi\t: +", listKomisi[lihatData - 1])
+                gajiJunior = gajiJunior - (listAbsen[lihatData - 1] * 40000 + listIzin[lihatData - 1]* 20000) + (listLembur[lihatData - 1] * 15000) + listKomisi[lihatData - 1]
+                print("Gaji Bersih : ",gajiJunior)
+            edit = str(input("Apakah ingin mengedit data karyawan ? (yes/no)"))
+            if edit == "yes":
+                editTotalIzin = int(input("Total izin : "))
+                editTotalAbsen = int(input("Total Absen : "))
+                editHourLembur = int(input("Edit Total Lembur : "))
+                listIzin[lihatData - 1] = editTotalIzin
+                listAbsen[lihatData - 1] = editTotalAbsen
+                listLembur[lihatData - 1] = editHourLembur
+                print ("UPDATE CONFIRMED!\n")
+                print("Nama karyawan : ", listKaryawan[lihatData - 1])
+                print("Tahun Kerja : ", listTahun[lihatData - 1])
+                print("Total lembur : ", listLembur[lihatData - 1] * 5000) 
+                print("Total Izin : ", listIzin[lihatData - 1])
+                print("Total Absen : ", listAbsen[lihatData - 1])
+                print("Total Komisi : ", listKomisi[lihatData - 1])
+            gajiSenior = 8000000
+            gajiJunior = 4000000        
+            pilihan()
+            choice = int(input("Pilih : "))
+        else:
+            choice = 1
+        
+
+    elif choice == 3:
+        print("\t============RULES PERUSAHAAN PT KONDIM MEGA============")
+        print("\t[ setiap kali absen 1 hari potong gaji 40000 ]\n")
+        print("\t[ Total kerja 8 jam ]\n")
+        print("\t[ Terlambat 5 menit dikurang gaji 15000 ]\n")
+        print("\t[ Projek lewat deadline dikurang komisi 25%/minggu ]\n")
+        print("\t[ setiap kali izin 1 hari potong gaji 20000 ]\n")
+        print("\t[ setiap kali absen 1 hari potong gaji 40000 ]\n")
+        # pilihan ()
+        # choice = int(input("Pilih : "))
+        backMenu = str(input("kembali ke halaman menu? (yes/no)"))
+        if (backMenu == "yes"):
+            pilihan ()
+            choice = int(input("Pilih : "))
+        else:
+            break
+    
+    # elif choice == 4:
+        #SOON

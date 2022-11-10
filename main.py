@@ -1,8 +1,8 @@
 def pilihan():
   print("=" * 36)
-  print("\t\t  PT. Pelangi Indah")
+  print("\t  PT. Pelangi Indah")
   print("=" * 36)
-  print("\t         | MAIN PAGE |\n")
+  print("\t    | MAIN PAGE |\n")
   print("1. Input data karyawan")
   print("2. Lihat data per Karyawan")
   print("3. Rules Perusahaan")
@@ -68,15 +68,15 @@ while choice != 0:
       print("=" * 36)
       print("\t * DATA KARYAWAN *")
       print("=" * 36, "\n")
-      
+
       for x in listKaryawan:
         print(listKaryawan.index(x) + 1, end="")  #1
-        print(".", x)  #. Ceo
+        print(".", x)  #1.Ceo
       print("-" * 36)
       #LEN sebagai fungsi untuk menentukan panjang data yang ada di listKaryawan
       if len(listKaryawan) > 0:
         lihatData = int(input(("Masukkan no.urut karyawan : ")))
-        print("" * 37)
+        print("-" * 37)
         print("Nama karyawan \t\t: ", listKaryawan[lihatData - 1])
         print("Tahun kerja \t\t: ", listTahun[lihatData - 1])
         if (2022 - listTahun[lihatData - 1] >= 5):
@@ -146,7 +146,7 @@ while choice != 0:
 
         pilihan()
         choice = int(input("Pilih : "))
-        
+
         gajiSenior = 8000000
         gajiJunior = 4000000
 
@@ -154,22 +154,22 @@ while choice != 0:
     #   choice = 1
 #Choice 3 sebagai Option untuk melihat Rules/Peraturan-peraturan Perusahaan
   elif choice == 3:
-    print("="*59)
+    print("=" * 59)
     print("||\t\t        | RULES PT. PELANGI INDAH |              ||")
-    print("="*59,'\n')
-    print("_"*59)
+    print("=" * 59, '\n')
+    print("_" * 59)
     print("| \t         ** KERJA DARI SENIN - JUMAT **               |")
-    print("_"*59)
+    print("_" * 59)
     print("| \t\t        ** TOTAL KERJA 8 JAM **                   |")
-    print("_"*59)
+    print("_" * 59)
     print("|    ** TERLAMBAT 5 MENIT POTONG GAJI Rp. 15.000 **       |")
-    print("_"*59)
+    print("_" * 59)
     print("|** PROJEK LEWAT DEADLINE DIPOTONG KOMISI 25% / MINGGU ** |")
-    print("_"*59)
+    print("_" * 59)
     print("| ** SETIAP KALI IZIN 1 HARI POTONG GAJI Rp. 20.000 **    |")
-    print("_"*59)
+    print("_" * 59)
     print("| ** SETIAP KALI ABSEN 1 HARI POTONG GAJI Rp. 40.000 **   |")
-    print("_"*59,'\n')
+    print("_" * 59, '\n')
 
     backMenu = str(input("kembali ke halaman menu? ( yes / no ) : "))
     if (backMenu == "yes"):
@@ -179,9 +179,9 @@ while choice != 0:
     elif (backMenu == "no"):
       print("\n\t      ~~Sampai Jumpa dan Kembali Lagi~~")
       print("\t   ! Project Tugas 'Pemrograman Komputer' !")
-      print("_"*54)
+      print("_" * 54)
       print("| Raymond Tju | Jhonsen | Devon Loen | Cecilia Ongso |")
-      print("-"*54)
+      print("-" * 54)
       break
     else:
       backMenu = str(input("kembali ke halaman menu? ( yes / no ) : "))
@@ -189,9 +189,9 @@ while choice != 0:
 #Choice 4 sebagai Option untuk melihat semua data karyawan yang ada di dalam perusahaan
   elif choice == 4:
     lens = len(listKaryawan)
-    print("="*50)
+    print("=" * 50)
     print("\t DATA SEMUA KARYAWAN | PT. PELANGI INDAH")
-    print("="*50)
+    print("=" * 50)
     for x in range(len(listKaryawan)):
       # len = listKaryawan.index(x)
       # print(listKaryawan.index(x) + 1, end="")  #1
@@ -202,7 +202,7 @@ while choice != 0:
       print("Total Absen (DAYS)\t:  ", listAbsen[x - 1])
       print("Total lembur \t\t: Rp. ", listLembur[x - 1] * 15000)
       print("Total Komisi \t\t: Rp. ", listKomisi[x - 1])
-      print("-"*48,'\n')
+      print("-" * 48, '\n')
     backMenu = str(input("kembali ke halaman menu? ( yes / no ) : "))
     if (backMenu == "yes"):
       print("\n")
@@ -211,12 +211,11 @@ while choice != 0:
     elif (backMenu == "no"):
       print("\n~~Sampai Jumpa dan Kembali Lagi~~")
       print("! Project Tugas 'Pemrograman Komputer' !")
-      print("______________________________________________________")
+      print("_" * 54)
       print("| Raymond Tju | Jhonsen | Devon Loen | Cecilia Ongso |")
-      print("------------------------------------------------------")
+      print("_" * 54)
       break
     else:
-        backMenu = str(input("kembali ke halaman menu? ( yes / no ) : "))
-  else :
+      backMenu = str(input("kembali ke halaman menu? ( yes / no ) : "))
+  else:
     break
-    
